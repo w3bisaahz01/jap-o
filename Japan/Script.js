@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const widget = document.getElementById('access-widget');
   const sections = document.querySelectorAll('.section');
 
+  // Estados salvos
   let contrastOn = localStorage.getItem('contrast') === 'true';
   let textOn = localStorage.getItem('text') === 'true';
   let positionRight = localStorage.getItem('widgetRight') !== 'false';
 
-  // Inicializa classes de acordo com localStorage
+  // Inicializa
   document.body.classList.toggle('contrast', contrastOn);
   document.body.classList.toggle('large-text', textOn);
   if(!positionRight){
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     widget.style.left = '20px';
   }
 
-  // Mostrar seções com delay para efeito fade-in
+  // Fade-in das seções
   sections.forEach((section, i) => {
     setTimeout(() => section.classList.add('show'), i * 150);
   });
@@ -31,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Atalho Ctrl + M
   document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.key.toLowerCase() === 'm') {
+    if(e.ctrlKey && e.key.toLowerCase() === 'm'){
       widgetMenu.style.display = widgetMenu.style.display === 'flex' ? 'none' : 'flex';
     }
   });
 
-  // Modo contraste
+  // Contraste
   toggleContrast.addEventListener('click', () => {
     contrastOn = !contrastOn;
     document.body.classList.toggle('contrast', contrastOn);
@@ -59,26 +60,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Arrastar widget
-  let isDragging = false;
-  let offsetX, offsetY;
-
-  widget.addEventListener('mousedown', (e) => {
+  let isDragging = false, offsetX, offsetY;
+  widget.addEventListener('mousedown', e => {
     isDragging = true;
     offsetX = e.clientX - widget.getBoundingClientRect().left;
     offsetY = e.clientY - widget.getBoundingClientRect().top;
     widget.style.cursor = 'grabbing';
     widget.style.transition = 'none';
   });
-
-  document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
+  document.addEventListener('mousemove', e => {
+    if(isDragging){
       widget.style.left = e.clientX - offsetX + 'px';
       widget.style.top = e.clientY - offsetY + 'px';
       widget.style.right = 'auto';
       widget.style.bottom = 'auto';
     }
   });
-
   document.addEventListener('mouseup', () => {
     if(isDragging){
       isDragging = false;
@@ -87,12 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Animação das seções ao rolar
+  // Mostrar seções ao rolar
   window.addEventListener('scroll', () => {
     const trigger = window.innerHeight * 0.85;
     sections.forEach(section => {
-      const top = section.getBoundingClientRect().top;
-      if(top < trigger){
+      if(section.getBoundingClientRect().top < trigger){
         section.classList.add('show');
       }
     });

@@ -3,10 +3,19 @@ body {
   font-family: 'Karla', sans-serif;
   margin: 0;
   padding: 20px;
-  background: linear-gradient(135deg, #ffe0f0, #a0e7e5);
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: #222;
   transition: all 0.3s ease;
   scroll-behavior: smooth;
+}
+
+/* Animação de gradiente */
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
 /* Header */
