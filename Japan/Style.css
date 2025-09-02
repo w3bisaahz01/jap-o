@@ -124,7 +124,7 @@ header p {
 
 .section.show {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(1) scale(1);
 }
 
 .section.open {
