@@ -176,3 +176,12 @@ header p {
     font-size: 2em;
   }
 }
+body.contrast, body.contrast * {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #fff !important;
+}
+
+body.contrast img {
+  filter: brightness(0.7) contrast(1.2);
+}
