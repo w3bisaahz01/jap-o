@@ -108,7 +108,7 @@ header p {
 }
 
 .section {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(40px) scale(0.98);
   transition: opacity 0.8s, transform 0.8s;
   background: linear-gradient(100deg, #fff 80%, #e7001233 100%);
