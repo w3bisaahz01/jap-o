@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     widget.style.left = '20px';
   }
 
-  // Fade-in das seções com animação
+  // Fade-in das seções animadas
   const fadeInSections = () => {
     const trigger = window.innerHeight * 0.85;
     sections.forEach(section => {
@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Arrastar widget
   let isDragging = false, offsetX, offsetY;
   widget.addEventListener('mousedown', e => {
+    // Só arrasta se clicar na parte livre do widget, não nos botões
+    if(e.target !== widget) return;
     isDragging = true;
     offsetX = e.clientX - widget.getBoundingClientRect().left;
     offsetY = e.clientY - widget.getBoundingClientRect().top;
