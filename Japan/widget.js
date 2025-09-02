@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Arrastar widget
   let isDragging = false, offsetX, offsetY;
   widget.addEventListener('mousedown', e => {
-    // Só arrasta se clicar na parte livre do widget, não nos botões
     if(e.target !== widget) return;
     isDragging = true;
     offsetX = e.clientX - widget.getBoundingClientRect().left;

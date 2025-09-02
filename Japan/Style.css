@@ -1,4 +1,3 @@
-/* Fonte bonita do Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 body {
@@ -40,7 +39,6 @@ header p {
   font-weight: 500;
 }
 
-/* Widget de acessibilidade */
 #access-widget {
   position: fixed;
   right: 20px;
@@ -109,7 +107,6 @@ header p {
   padding: 0 16px;
 }
 
-/* Cartões de informação */
 .section {
   opacity: 0;
   transform: translateY(40px) scale(0.98);
@@ -164,7 +161,6 @@ header p {
   padding-left: 20px;
 }
 
-/* Responsivo */
 @media (max-width: 700px) {
   .main-content {
     max-width: 98vw;
