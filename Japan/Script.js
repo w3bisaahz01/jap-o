@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let textOn = localStorage.getItem('text') === 'true';
   let positionRight = localStorage.getItem('widgetRight') !== 'false';
 
-  // Inicializa
   document.body.classList.toggle('contrast', contrastOn);
   document.body.classList.toggle('large-text', textOn);
   if(!positionRight){
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     widget.style.left = '20px';
   }
 
-  // Fade-in das seções
+  // Fade-in
   sections.forEach((section, i) => {
     setTimeout(() => section.classList.add('show'), i * 150);
   });
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Atalho Ctrl + M
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if(e.ctrlKey && e.key.toLowerCase() === 'm'){
       widgetMenu.style.display = widgetMenu.style.display === 'flex' ? 'none' : 'flex';
     }
@@ -91,6 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if(section.getBoundingClientRect().top < trigger){
         section.classList.add('show');
       }
+    });
+  });
+
+  // Abrir/fechar card ao clicar
+  sections.forEach(section => {
+    section.addEventListener('click', () => {
+      section.classList.toggle('open');
     });
   });
 });
